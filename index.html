@@ -29,29 +29,35 @@
                 display: flex;
                 align-items: center;
             }
+            .highlight{
+                background-color: rgb(255, 193, 79);
+            }
+            .back{
+                background-color: rgb(168, 168, 168);
+            }
         </style>
     </head>
     <body>
         <center><h1>お問い合わせフォームサンプル</h1></center>
         <form action="" method="get">
             <div class="form-item">
-                <label for="name">必須 <b>名前</b></label>
+                <label for="name"><span class="highlight">必須</span> <b>名前</b></label>
                 <input type="text" id="name" name="name" required placeholder="例）山田太郎">
             </div>
             <div class="form-item">
-                <label for="tel">任意 <b>電話番号</b></label>
+                <label for="tel"><span class="back">任意</span><b>電話番号</b></label>
                 <input type="text" id="tel" name="tel" placeholder="例）000-0000-0000">
             </div>
             <div class="form-item">
-                <label for="email">必須 <b>メールアドレス</b></label>
+                <label for="email"><span class="highlight">必須</span>  <b>メールアドレス</b></label>
                 <input type="email" id="email" name="email" required placeholder="例）example@abc.com">
             </div>
             <div class="form-item">
-                <label for="inquiry">必須 <b>お問い合わせ内容</b></label>
+                <label for="inquiry"><span class="highlight">必須</span>  <b>お問い合わせ内容</b></label>
                 <textarea id="inquiry" name="inquiry" required></textarea>
             </div>
             <div class="form-item">
-                <label>任意 <b>興味があるもの</b></label>
+                <label><span class="back">任意</span>  <b>興味があるもの</b></label>
                 <div class="checkbox-group">
                     <label><input type="checkbox" id="html" name="interest" value="HTML"> HTML</label>
                     <label><input type="checkbox" id="css" name="interest" value="CSS"> CSS</label>
@@ -59,7 +65,7 @@
                 </div>
             </div>
             <div class="form-item">
-                <label>必須 <b>お知らせメール</b></label>
+                <label><span class="highlight">必須</span>  <b>お知らせメール</b></label>
                 <div class="radio-group">
                     <label><input type="radio" name="mail" value="send" checked> 送信してもよい</label>
                     <label><input type="radio" name="mail" value="no_send">送信しない</label>
