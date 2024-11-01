@@ -1,80 +1,132 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>お問い合わせフォーム</title>
-        <style>
-            .form-item {
-                margin-bottom: 15px;
-                border-bottom: 1px solid #ccc;
-                padding-bottom: 10px;
-            }
-            .form-item label {
-                display: block;
-                margin-bottom: 5px;
-            }
-            .form-item input, .form-item textarea {
-                width: 100%;
-                padding: 8px;
-                box-sizing: border-box;
-            }
-            .form-item input[type="checkbox"], .form-item input[type="radio"] {
-                width: auto;
-            }
-            .form-item .checkbox-group, .form-item .radio-group {
-                display: flex;
-                gap: 10px;
-            }
-            .form-item .checkbox-group label, .form-item .radio-group label {
-                display: flex;
-                align-items: center;
-            }
-            .highlight{
-                background-color: rgb(255, 193, 79);
-            }
-            .back{
-                background-color: rgb(168, 168, 168);
-            }
-        </style>
-    </head>
-    <body>
-        <center><h1>お問い合わせフォームサンプル</h1></center>
-        <form action="" method="get">
-            <div class="form-item">
-                <label for="name"><span class="highlight">必須</span> <b>名前</b></label>
-                <input type="text" id="name" name="name" required placeholder="例）山田太郎">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせフォームサンプル</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        .form-container {
+            width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 20px;
+            color: #88b68a;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .required::before {
+            content: "必須";
+            background-color: #d99c64;
+            color: white;
+            padding: 3px 5px;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+        .optional::before {
+            content: "任意";
+            background-color: #e0d7c0;
+            color: white;
+            padding: 3px 5px;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+        input[type="text"], input[type="tel"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        .interests {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .notification-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #88b68a;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .submit-btn:hover {
+            background-color: #76a578;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>お問い合わせフォームサンプル</h1>
+        <form>
+            <div class="form-group">
+                <label class="required">氏名</label>
+                <input type="text" placeholder="例）電子太郎" required>
             </div>
-            <div class="form-item">
-                <label for="tel"><span class="back">任意</span><b>電話番号</b></label>
-                <input type="text" id="tel" name="tel" placeholder="例）000-0000-0000">
+            <div class="form-group">
+                <label class="optional">電話番号</label>
+                <input type="tel" placeholder="例）000-0000-0000">
             </div>
-            <div class="form-item">
-                <label for="email"><span class="highlight">必須</span>  <b>メールアドレス</b></label>
-                <input type="email" id="email" name="email" required placeholder="例）example@abc.com">
+            <div class="form-group">
+                <label class="required">メールアドレス</label>
+                <input type="email" placeholder="例）example@abc.com" required>
             </div>
-            <div class="form-item">
-                <label for="inquiry"><span class="highlight">必須</span>  <b>お問い合わせ内容</b></label>
-                <textarea id="inquiry" name="inquiry" required></textarea>
+            <div class="form-group">
+                <label class="required">お問い合わせ内容</label>
+                <textarea placeholder="お問い合わせ内容を入力してください" required></textarea>
             </div>
-            <div class="form-item">
-                <label><span class="back">任意</span>  <b>興味があるもの</b></label>
-                <div class="checkbox-group">
-                    <label><input type="checkbox" id="html" name="interest" value="HTML"> HTML</label>
-                    <label><input type="checkbox" id="css" name="interest" value="CSS"> CSS</label>
-                    <label><input type="checkbox" id="javascript" name="interest" value="JavaScript"> JavaScript</label>
+            <div class="form-group">
+                <label class="optional">興味があるもの</label>
+                <div class="interests">
+                    <label><input type="checkbox" name="interest" value="HTML"> HTML</label>
+                    <label><input type="checkbox" name="interest" value="CSS"> CSS</label>
+                    <label><input type="checkbox" name="interest" value="JavaScript"> JavaScript</label>
                 </div>
             </div>
-            <div class="form-item">
-                <label><span class="highlight">必須</span>  <b>お知らせメール</b></label>
-                <div class="radio-group">
-                    <label><input type="radio" name="mail" value="send" checked> 送信してもよい</label>
-                    <label><input type="radio" name="mail" value="no_send">送信しない</label>
+            <div class="form-group">
+                <label class="required">お知らせメール</label>
+                <div class="notification-options">
+                    <label><input type="radio" name="notification" value="yes" checked> 送信してもよい</label>
+                    <label><input type="radio" name="notification" value="no"> 送信しない</label>
                 </div>
             </div>
-                <div class="form-item">
-                <input type="submit" value="送信する">
-            </div>
+            <button type="submit" class="submit-btn">送信する</button>
         </form>
-    </body>
+    </div>
+</body>
 </html>
-
